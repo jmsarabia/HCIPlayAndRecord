@@ -94,6 +94,7 @@ def computeStats(readerSamples, participantSamples):
         failRejectHo += 1
     print("Times we failed to reject Ho(the corresponding segments of the samples are equal): ", failRejectHo)
     # if the number of times we fail to reject Ho > 5, then the reader/participant "synchronized"
+    # so append a one to the synchronousList
     if failRejectHo > 5:
       synchronousList.append(1)
     else:
@@ -102,6 +103,7 @@ def computeStats(readerSamples, participantSamples):
 
 #%%
 
-#synchronous list represents the following array:
+#synchronous list represents whether the tests are synchronous in the following array:
   # [sadStoryPreTest, sadStoryPostTest, funnyStoryPreTest, funnyStoryPostTest]
+  # 1 = synchronous, 0 = nonsynchronous
 synchList = computeStats(readerSamples, participantSamples)
